@@ -37,4 +37,12 @@ jobs:
     # Check vulnerabilities 
     - name: Symfony Check Vulnerabilities 
       run: symfony check:security
+      continue-on-error: true
+
+    # PHP CS FIXER 
+    - name: PHP-CS-Fixer 
+      run: 
+        composer require friendsofphp/php-cs-fixer
+        ./vender/bin/php-cs-fixer fix --dry-run
+      continue-on-error: true
       
